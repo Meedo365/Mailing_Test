@@ -1,9 +1,7 @@
 const { successHandler } = require("../utils/core");
 const { errorHandler } = require("../utils/errorHandler");
 const Mails = require("../models/mails");
-const NodeCache = require("node-cache");
 const User = require("../models/users");
-const myCache = new NodeCache();
 
 module.exports = {
   sendMailToUser: async (req, res) => {
@@ -43,15 +41,9 @@ module.exports = {
   getAllMails: async (req, res) => {
     const user = req.user;
     try {
-      let mails;
-      if (myCache.has(`allProperties${user}`)) {
-        mails = myCache.get(`allProperties${user}`);
-      } else {
-        mails = await Mails.find({
-          userId: user,
-        }).sort({ createdAt: -1 });
-        myCache.set(`allProperties${user}`, mails, 30);
-      }
+      let mails = await Mails.find({
+        userId: user,
+      }).sort({ createdAt: -1 });
 
       return successHandler(res, "All Mails Found", mails);
     } catch (error) {
