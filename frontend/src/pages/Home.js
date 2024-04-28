@@ -10,8 +10,8 @@ import { Table } from "flowbite-react";
 function Home() {
   return (
     <>
-      <title>Login Page</title>
-      <meta name="description" content="Login Page to the Assessment" />
+      <title>Home Page</title>
+      <meta name="description" content="Home Page to the Assessment" />
       <div className="container mx-auto">
         <NavbarWithCTAButton />
 
