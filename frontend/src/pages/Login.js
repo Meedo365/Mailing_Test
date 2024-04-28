@@ -2,7 +2,7 @@ import React, { useContext, useState } from "react";
 import { Button, Card, Label, TextInput } from "flowbite-react";
 import { Store } from "../context/store";
 import { useNavigate } from "react-router-dom";
-function Login() {
+function Login(props) {
   let store = useContext(Store);
   let [baseUrl] = store.url;
   let [password, setPassword] = useState("");
@@ -43,12 +43,13 @@ function Login() {
         setError("An error occurred during login. Please try again.");
       });
   };
-  
+
   return (
     <>
       <title>Login Page</title>
       <meta name="description" content="Login Page to the Assessment" />
       <div className="container mx-auto">
+        <div className="toast">{props.error}</div>
         <div className="flex justify-center items-center h-screen">
           <Card className="w-3/4 md:w-1/2 lg:w-1/4">
             <h3 className="text-center font-extrabold text-2xl">Login</h3>
