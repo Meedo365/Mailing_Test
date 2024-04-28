@@ -16,7 +16,6 @@ function App() {
       !localStorage.getItem("inbox") ||
       localStorage.getItem("inbox") === "undefined"
     ) {
-      alert("Access denied. Please login.");
       return <Navigate to="/" />;
     }
     return element;
