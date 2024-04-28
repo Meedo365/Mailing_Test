@@ -19,7 +19,7 @@ function Home() {
     Promise.all([loadUser(), loadMsgs()])
       .then(() => setLoading(false))
       .catch(() => setLoading(false));
-  }, [unread]);
+  }, []);
 
   const loadMsgs = async () => {
     try {
