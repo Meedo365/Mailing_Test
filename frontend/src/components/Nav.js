@@ -16,10 +16,10 @@ export default function NavbarWithCTAButton() {
       </Navbar.Brand>
       <Navbar.Toggle />
       <Navbar.Collapse>
-        <Navbar.Link href="/home" active>
+        <Navbar.Link as={Link} to={"/home"} active>
           Home
         </Navbar.Link>
-        <Navbar.Link className="cursor-pointer" href="/" onClick={logOut}>
+        <Navbar.Link className="cursor-pointer" as={Link} to={"/"}onClick={logOut}>
           Sign Out
         </Navbar.Link>
       </Navbar.Collapse>
