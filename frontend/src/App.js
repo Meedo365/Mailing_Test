@@ -31,7 +31,7 @@ function App() {
             element={<UploadRouteGuard element={<Home />} />}
           />
           <Route
-            path="/message"
+            path="/message/:id"
             element={<UploadRouteGuard element={<Message />} />}
           />
         </Routes>
