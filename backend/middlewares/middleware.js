@@ -11,7 +11,9 @@ const auth = async (req, res, next) => {
 
   try {
     const decoded = jwt.verify(token, process.env.ACCESS_TOKEN_SECRET);
-    const user = await User.findOne({ _id: decoded._id });
+    const user = await User.findOne({
+      $or: [{ _id: decoded.id }, { _id: decoded._id }],
+    });
     req.user = user._id;
     next();
   } catch (err) {
