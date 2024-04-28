@@ -1,6 +1,7 @@
 import { Navbar } from "flowbite-react";
 import img from "../assets/images/logo.png";
 import { Link } from "react-router-dom";
+import { Table } from "flowbite-react";
 
 export default function NavbarWithCTAButton() {
   return (
@@ -13,7 +14,7 @@ export default function NavbarWithCTAButton() {
       </Navbar.Brand>
       <Navbar.Toggle />
       <Navbar.Collapse>
-        <Navbar.Link href="#" active>
+        <Navbar.Link href="/" active>
           Home
         </Navbar.Link>
         <Navbar.Link className="cursor-pointer">Sign Out</Navbar.Link>
