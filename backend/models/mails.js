@@ -16,7 +16,7 @@ const mailsSchema = mongoose.Schema(
       required: true,
     },
     isRead: {
-      type: String,
+      type: Boolean,
       default: false,
     },
     from: {
