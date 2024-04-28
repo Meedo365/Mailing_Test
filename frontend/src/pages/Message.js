@@ -1,7 +1,45 @@
-import React from "react";
+import React, { useContext, useState, useEffect } from "react";
 import NavbarWithCTAButton from "../components/Nav";
-import { Card } from "flowbite-react";
+import { Card, Spinner } from "flowbite-react";
+import { Store } from "../context/store";
+import { useParams } from "react-router-dom";
+
 function Message() {
+  let store = useContext(Store);
+  let [baseUrl] = store.url;
+  let [mail, setMail] = useState({});
+  let [, setError] = useState("");
+  let { id } = useParams();
+  let [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    loadMail();
+  }, []);
+
+  const loadMail = async () => {
+    setLoading(true);
+    try {
+      const token = localStorage.getItem("inbox");
+      const url = `${baseUrl}/mail/${id}`;
+      const response = await fetch(url, {
+        headers: {
+          "content-type": "application/json",
+          "mailing-user": token,
+        },
+        method: "GET",
+      });
+      if (!response.ok) {
+        throw new Error("Failed to fetch messages");
+      }
+      const { data } = await response.json();
+      setMail(data);
+    } catch (error) {
+      setError("An error occurred. Please try again.");
+      throw error;
+    }
+    setLoading(false);
+  };
+  
   return (
     <>
       <title>Message Page</title>
@@ -10,42 +48,40 @@ function Message() {
       <div className="container mx-auto">
         <NavbarWithCTAButton />
 
-        <div className="flex justify-center items-center">
-          <Card className="max-w-sm overflow-hidden" horizontal>
-            <div className="static p-4">
-              <p>
-                From: <span className="text-amber-500">ahmed@gmail.com</span>
-              </p>
-              <h5 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-                Noteworthy technology acquisitions 2021
-              </h5>
-            </div>
+        {loading && (
+          <div className="flex justify-center items-center h-[80vh]">
+            <Spinner
+              color="warning"
+              aria-label="Warning spinner example"
+              size="xl"
+            />
+          </div>
+        )}
+        {!loading && (
+          <div className="flex justify-center items-center">
+            {mail && (
+              <Card
+                className="max-w-sm min-w-[400px]  overflow-hidden"
+                horizontal
+              >
+                <div className="static p-4">
+                  <p>
+                    From: <span className="text-amber-500">{mail.from}</span>
+                  </p>
+                  <h5 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+                    {mail.subject}
+                  </h5>
+                </div>
 
-            <div className="scrollable-content overflow-y-auto p-4">
-              <p className="font-normal text-gray-700 dark:text-gray-400">
-                Here are the biggest enterprise technology acquisitions of 2021
-                so far, in reverse chronological order. Here are the biggest
-                enterprise technology acquisitions of 2021 so far, in reverse
-                chronological order. Here are the biggest enterprise technology
-                acquisitions of 2021 so far, in reverse chronological order.
-                Here are the biggest enterprise technology acquisitions of 2021
-                so far, in reverse chronological order. Here are the biggest
-                enterprise technology acquisitions of 2021 so far, in reverse
-                chronological order. Here are the biggest enterprise technology
-                acquisitions of 2021 so far, in reverse chronological order.
-                Here are the biggest enterprise technology acquisitions of 2021
-                so far, in reverse chronological order. Here are the biggest
-                enterprise technology acquisitions of 2021 so far, in reverse
-                chronological order. Here are the biggest enterprise technology
-                acquisitions of 2021 so far, in reverse chronological order.
-                Here are the biggest enterprise technology acquisitions of 2021
-                so far, in reverse chronological order. Here are the biggest
-                enterprise technology acquisitions of 2021 so far, in reverse
-                chronological order.
-              </p>
-            </div>
-          </Card>
-        </div>
+                <div className="scrollable-content overflow-y-auto px-4 py-0">
+                  <p className="font-normal text-gray-700 dark:text-gray-400">
+                    {mail.content}
+                  </p>
+                </div>
+              </Card>
+            )}
+          </div>
+        )}
       </div>
     </>
   );
