@@ -12,6 +12,7 @@ import StoreContext from "./context/store";
 import { useState } from "react";
 import { Toast } from "flowbite-react";
 import { HiX } from "react-icons/hi";
+import NotFound from "./pages/NotFound";
 
 function App() {
   let [error, setError] = useState("");
@@ -48,6 +49,7 @@ function App() {
             path="/message/:id"
             element={<UploadRouteGuard element={<Message />} />}
           />
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </Router>
     </StoreContext>
