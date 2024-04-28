@@ -2,7 +2,8 @@ import React, { createContext, useState } from 'react';
 export const Store = createContext();
 const StoreContext = ({ children }) => {
     let [user, setUser] = useState('');
-    let [baseUrl] = useState('http://localhost:3050/api/v1');
+    // let [baseUrl] = useState('http://localhost:3050/api/v1');
+    let [baseUrl] = useState('https://mailing-test.onrender.com/api/v1');
 
     let states = {
         userinfo: [user, setUser],
