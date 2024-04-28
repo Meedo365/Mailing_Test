@@ -62,25 +62,15 @@ module.exports = {
     try {
       let id = req.params.id;
       const user = req.user;
-      let mail = await Mails.findOne({ _id: id, userId: user });
-      if (!mail) return errorHandler(res, "No Mail found.", 404);
-      return successHandler(res, "Mail Found", mail);
-    } catch (error) {
-      return errorHandler(res, error.message, error.statusCode);
-    }
-  },
-  readMailsById: async (req, res) => {
-    try {
-      const id = req.params.id;
       const mail = await Mails.findOneAndUpdate(
-        { _id: id },
+        { _id: id, userId: user },
         { isRead: true },
         {
           new: true,
         }
       );
-      if (!mail) return errorHandler(res, "No Mail found with the ID", 404);
-      return successHandler(res, "Mail Read", mail);
+      if (!mail) return errorHandler(res, "No Mail found.", 404);
+      return successHandler(res, "Mail Found", mail);
     } catch (error) {
       return errorHandler(res, error.message, error.statusCode);
     }
