@@ -3,6 +3,9 @@ import img from "../assets/images/logo.png";
 import { Link } from "react-router-dom";
 
 export default function NavbarWithCTAButton() {
+  let logOut = () => {
+    localStorage.removeItem("inbox");
+  };
   return (
     <Navbar fluid rounded>
       <Navbar.Brand as={Link} to={"/home"}>
@@ -16,7 +19,9 @@ export default function NavbarWithCTAButton() {
         <Navbar.Link href="/home" active>
           Home
         </Navbar.Link>
-        <Navbar.Link className="cursor-pointer" href="/">Sign Out</Navbar.Link>
+        <Navbar.Link className="cursor-pointer" href="/" onClick={logOut}>
+          Sign Out
+        </Navbar.Link>
       </Navbar.Collapse>
     </Navbar>
   );
