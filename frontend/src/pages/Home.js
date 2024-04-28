@@ -1,6 +1,5 @@
 import React from "react";
 import NavbarWithCTAButton from "../components/Nav";
-import { Icon } from "@iconify/react";
 import { Card } from "flowbite-react";
 import { Banner } from "flowbite-react";
 import { HiX } from "react-icons/hi";
