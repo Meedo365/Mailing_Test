@@ -24,9 +24,12 @@
 							}
 						},
 						"url": {
-							"raw": "{{mailing_url}}/api/v1/register",
+							"raw": "https://mailing-test.onrender.com/api/v1/register",
+							"protocol": "https",
 							"host": [
-								"{{mailing_url}}"
+								"mailing-test",
+								"onrender",
+								"com"
 							],
 							"path": [
 								"api",
@@ -55,9 +58,12 @@
 							}
 						},
 						"url": {
-							"raw": "{{mailing_url}}/api/v1/login",
+							"raw": "https://mailing-test.onrender.com/api/v1/login",
+							"protocol": "https",
 							"host": [
-								"{{mailing_url}}"
+								"mailing-test",
+								"onrender",
+								"com"
 							],
 							"path": [
 								"api",
@@ -74,9 +80,12 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{mailing_url}}/api/v1/users",
+							"raw": "https://mailing-test.onrender.com/api/v1/users",
+							"protocol": "https",
 							"host": [
-								"{{mailing_url}}"
+								"mailing-test",
+								"onrender",
+								"com"
 							],
 							"path": [
 								"api",
@@ -93,9 +102,12 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{mailing_url}}/api/v1/user/662e2a532b748d65cf742fff",
+							"raw": "https://mailing-test.onrender.com/api/v1/user/662e2a532b748d65cf742fff",
+							"protocol": "https",
 							"host": [
-								"{{mailing_url}}"
+								"mailing-test",
+								"onrender",
+								"com"
 							],
 							"path": [
 								"api",
@@ -128,9 +140,12 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{mailing_url}}/api/v1/token",
+							"raw": "https://mailing-test.onrender.com/api/v1/token",
+							"protocol": "https",
 							"host": [
-								"{{mailing_url}}"
+								"mailing-test",
+								"onrender",
+								"com"
 							],
 							"path": [
 								"api",
@@ -161,9 +176,12 @@
 							}
 						},
 						"url": {
-							"raw": "{{mailing_url}}/api/v1/mail",
+							"raw": "https://mailing-test.onrender.com/api/v1/mail",
+							"protocol": "https",
 							"host": [
-								"{{mailing_url}}"
+								"mailing-test",
+								"onrender",
+								"com"
 							],
 							"path": [
 								"api",
@@ -195,9 +213,12 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{mailing_url}}/api/v1/mails",
+							"raw": "https://mailing-test.onrender.com/api/v1/mails",
+							"protocol": "https",
 							"host": [
-								"{{mailing_url}}"
+								"mailing-test",
+								"onrender",
+								"com"
 							],
 							"path": [
 								"api",
@@ -229,9 +250,12 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{mailing_url}}/api/v1/mail/662e78f6a1887394ff61d6f8",
+							"raw": "https://mailing-test.onrender.com/api/v1/mail/662e78f6a1887394ff61d6f8",
+							"protocol": "https",
 							"host": [
-								"{{mailing_url}}"
+								"mailing-test",
+								"onrender",
+								"com"
 							],
 							"path": [
 								"api",
@@ -264,9 +288,12 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "{{mailing_url}}/api/v1/mail/662e2f36a4ad7030c8700432",
+							"raw": "https://mailing-test.onrender.com/api/v1/mail/662e2f36a4ad7030c8700432",
+							"protocol": "https",
 							"host": [
-								"{{mailing_url}}"
+								"mailing-test",
+								"onrender",
+								"com"
 							],
 							"path": [
 								"api",
