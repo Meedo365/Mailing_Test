@@ -114,13 +114,13 @@
 							"type": "apikey",
 							"apikey": [
 								{
-									"key": "key",
-									"value": "mailing-user",
+									"key": "value",
+									"value": "{{mailing_token}}",
 									"type": "string"
 								},
 								{
-									"key": "value",
-									"value": "{{mailing_token}}",
+									"key": "key",
+									"value": "mailing-user",
 									"type": "string"
 								}
 							]
@@ -153,7 +153,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"to\": \"nuhuahmed365@gmail.com\",\n    \"from\": \"ahmed@gmail.com\",\n    \"subject\": \"Testing has ended\",\n    \"content\": \"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.\"\n}",
+							"raw": "{\n    \"to\": \"nuhuahmed365@gmail.com\",\n    \"from\": \"ahmed@gmail.com\",\n    \"subject\": \"Invitation\",\n    \"content\": \"I'm excited to invite you to a networking event we're hosting next week on [date] at [location or virtual platform]. It's a great opportunity to connect with industry peers and exchange ideas. We'd love to have you join us!\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -181,13 +181,13 @@
 							"type": "apikey",
 							"apikey": [
 								{
-									"key": "key",
-									"value": "mailing-user",
+									"key": "value",
+									"value": "{{mailing_token}}",
 									"type": "string"
 								},
 								{
-									"key": "value",
-									"value": "{{mailing_token}}",
+									"key": "key",
+									"value": "mailing-user",
 									"type": "string"
 								}
 							]
